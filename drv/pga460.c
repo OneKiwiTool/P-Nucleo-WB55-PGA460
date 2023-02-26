@@ -82,6 +82,23 @@ uint8_t pga460_read_register(uint8_t reg){
     return data;
 }
 
+uint8_t pga460_threshold_bulk_read(void){
+    uint8_t data = 0;
+    receivedChars = 0;
+    uint8_t buffer[3] = {SYNCBYTE, THRBR, 0x00};
+    buffer[2] = pga460_calc_checksum(&buffer[1], sizeof(buffer) - 2);
+
+    uart_transmit(buffer, sizeof(buffer));
+    LL_mDelay(10);
+
+    for(uint8_t i = 0; i < 33; i++)
+    {
+    	printf("%02d. 0x%02x\n", i, BufferRead[i]);
+    }
+    receivedChars = 0;
+    return data;
+}
+
 /*------------------------------------------------- initThresholds -----
  |  Function initThresholds
  |

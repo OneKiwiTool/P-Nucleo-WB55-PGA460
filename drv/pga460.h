@@ -167,5 +167,6 @@ void pga460_init_thresholds(uint8_t thr);
 void pga460_default(uint8_t xdcr);
 void pga460_init_tvg(uint8_t agr, uint8_t tvg);
 void pga460_ultrasonic_cmd(uint8_t cmd, uint8_t numObjUpdate);
+uint8_t pga460_threshold_bulk_read(void);
 
 #endif /* __PGA460_H */

@@ -31,9 +31,11 @@ int main(void)
     temp = pga460_read_register(0x01);
     printf("4. 0x%02x\n", temp);
 
-    pga460_init_thresholds(1);
-    pga460_default(1);
-    pga460_init_tvg(2, 1);
+    //pga460_init_thresholds(1);
+    //pga460_default(1);
+    //pga460_init_tvg(2, 1);
+    pga460_threshold_bulk_read();
+    printf("4. 0x%02x\n", temp);
 
     while (1)
     {
